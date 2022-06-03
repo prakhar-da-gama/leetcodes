@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+string exept_ch(string s,int x){
+    string str="";
+    for(int i=0;i<s.length();i++){
+        if(i!=x)
+          str=str+s[i];
+    
+    }
+    return str;
+}
+void permutation(string s,string prm){
+    if(s.length() == 0){
+        cout<<prm<<endl;
+        return ;
+    }
+    for(int i=0;i<s.length();i++){
+        char ch=s[i];
+        string str= exept_ch(s,i);
+        permutation(str,prm+ch);
+    }
+} 
+int main()
+{
+    string s = "ABC";
+   string prm ="";
+   cout<<exept_ch(s,0)<<endl;
+   permutation(s,prm);
+
+    return 0;
+}
