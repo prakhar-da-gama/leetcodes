@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string convert(char a){
+        //int num = (int) a;
+        string s="";
+        s=s+a;
+        
+                s = stoi(s) + 96;
+    return s;
+    }
+    
+    string convert2(char a, char b){
+        string s ="";
+        s=s+b+a;
+       s = stoi(s)+96;
+        return s;
+    }
+    string freqAlphabets(string s) {
+        string str="";
+        for(int i=s.size()-1;i>=0;i--){
+            if(s[i]=='#' && i>=2){
+              str=convert2(s[i-1],s[i-2])+str;
+                i=i-2;
+            }
+            else
+            {
+                str=convert(s[i])+str;
+            }
+        }
+        return str;
+    }
+};
